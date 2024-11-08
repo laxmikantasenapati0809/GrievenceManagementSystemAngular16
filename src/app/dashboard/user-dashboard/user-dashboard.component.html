@@ -10,15 +10,21 @@
 
   <!-- Content Area -->
   <div class="content">
+
     <!-- My Complaints View -->
     <div *ngIf="view === 'myComplaints'" class="complaints-list">
       <h3>Your Complaints</h3>
       <div *ngIf="complaints.length > 0; else noComplaints">
         <div *ngFor="let complaint of complaints" class="complaint-card">
           <p><strong>Department:</strong> {{ complaint.managementType }}</p>
+          <p><strong>Department Type:</strong> {{ complaint.departmentType }}</p>
           <p><strong>Description:</strong> {{ complaint.description }}</p>
           <p><strong>Status:</strong> {{ complaint.status }}</p>
           <p><strong>Phone Number:</strong> {{ complaint.phoneNumber }}</p>
+
+          <!-- Edit and Delete Buttons -->
+          <button (click)="editComplaintDetails(complaint)">Edit</button>
+          <button (click)="deleteComplaint(complaint.id)">Delete</button>
         </div>
       </div>
       <ng-template #noComplaints>
@@ -30,12 +36,15 @@
     <div *ngIf="view === 'newComplaint'" class="add-complaint">
       <h3>Add a New Complaint</h3>
       <form (ngSubmit)="submitComplaint()">
-        <label for="managementType">Department Type</label>
+        <label for="managementType">Department</label>
         <select [(ngModel)]="newComplaint.managementType" name="managementType" required>
-          <option value="IT">IT</option>
-          <option value="HR">HR</option>
-          <option value="Maintenance">Maintenance</option>
+          <option *ngFor="let role of roles" [value]="role.name">
+            {{ role.name }} - {{ role.description }}
+          </option>
         </select>
+
+        <label for="departmentType">Department Type</label>
+        <input [(ngModel)]="newComplaint.departmentType" name="departmentType" required />
 
         <label for="description">Description</label>
         <textarea [(ngModel)]="newComplaint.description" name="description" required></textarea>
@@ -44,6 +53,31 @@
         <input type="tel" [(ngModel)]="newComplaint.phoneNumber" name="phoneNumber" required />
 
         <button type="submit">Submit Complaint</button>
+      </form>
+    </div>
+
+    <!-- Edit Complaint Form -->
+    <div *ngIf="view === 'editComplaint' && editComplaint" class="edit-complaint">
+      <h3>Edit Complaint</h3>
+      <form (ngSubmit)="updateComplaint()">
+        <label for="managementType">Department</label>
+        <select [(ngModel)]="editComplaint.managementType" name="managementType" required>
+          <option *ngFor="let role of roles" [value]="role.name">
+            {{ role.name }} - {{ role.description }}
+          </option>
+        </select>
+
+        <label for="departmentType">Department Type</label>
+        <input [(ngModel)]="editComplaint.departmentType" name="departmentType" required />
+
+        <label for="description">Description</label>
+        <textarea [(ngModel)]="editComplaint.description" name="description" required></textarea>
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" [(ngModel)]="editComplaint.phoneNumber" name="phoneNumber" required />
+
+        <button type="submit">Update Complaint</button>
+        <button type="button" (click)="cancelEdit()">Cancel</button>
       </form>
     </div>
   </div>

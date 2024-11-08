@@ -1,4 +1,3 @@
-// Updated Angular Service (ComplaintService)
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -23,5 +22,15 @@ export class ComplaintService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams().set('userId', userId.toString());
     return this.http.post<Complaint>(this.apiUrl, complaint, { headers, params });
+  }
+
+  // Update a complaint
+  updateComplaint(id: number, complaint: Complaint, userId: number): Observable<Complaint> {
+    return this.http.put<Complaint>(`${this.apiUrl}/${id}?userId=${userId}`, complaint);
+  }
+
+  // Delete a complaint
+  deleteComplaint(id: number, userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}?userId=${userId}`);
   }
 }

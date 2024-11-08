@@ -1,32 +1,39 @@
 .dashboard {
   position: relative;
   display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #f2f2f2, #ffffff);
 }
 
+/* Logout Button */
 .logout-button {
   position: absolute;
   top: 20px;
   right: 20px;
   padding: 8px 12px;
-  background-color: #d9534f;
+  background: linear-gradient(135deg, #e57373, #d32f2f);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logout-button:hover {
-  background-color: #c9302c;
+  background: linear-gradient(135deg, #ef5350, #c62828);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Sidebar */
 .sidebar {
   width: 200px;
-  background-color: #333;
+  background: linear-gradient(135deg, #333, #444);
   color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar button {
@@ -36,36 +43,47 @@
   padding: 10px;
   text-align: left;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: all 0.3s;
 }
 
 .sidebar button.active, .sidebar button:hover {
-  background-color: #555;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
 }
 
+/* Content Area */
 .content {
   flex: 1;
   padding: 20px;
+  background: linear-gradient(135deg, #fafafa, #f5f5f5);
 }
 
-.complaints-list, .add-complaint {
+/* Complaints List and Form Container */
+.complaints-list, .add-complaint, .edit-complaint {
   max-width: 600px;
   margin: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
+/* Complaint Card */
 .complaint-card {
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #fdfdfd, #fafafa);
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .complaint-card p {
   margin: 5px 0;
 }
 
+/* Form */
 form {
   display: flex;
   flex-direction: column;
@@ -73,6 +91,7 @@ form {
 
 form label {
   margin-top: 10px;
+  font-weight: bold;
 }
 
 form select, form textarea, form input {
@@ -82,17 +101,44 @@ form select, form textarea, form input {
   border: 1px solid #ddd;
 }
 
-button[type="submit"] {
+/* Submit Button */
+button[type="submit"], .complaint-card button, .edit-complaint button[type="button"] {
   margin-top: 15px;
-  background-color: #4CAF50;
-  color: white;
   padding: 10px;
   border: none;
   border-radius: 5px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Submit Button */
+button[type="submit"] {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
 }
 
 button[type="submit"]:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #45a049, #2e7d32);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Edit and Delete Buttons in Complaint Card */
+.complaint-card button {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  color: white;
+  margin-right: 10px;
+}
+
+.complaint-card button:hover {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+}
+
+/* Cancel Button */
+.edit-complaint button[type="button"] {
+  background: linear-gradient(135deg, #e57373, #d32f2f);
+}
+
+.edit-complaint button[type="button"]:hover {
+  background: linear-gradient(135deg, #ef5350, #c62828);
 }
