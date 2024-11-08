@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Management System - Admin Dashboard</title>
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+          <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+          <li><a routerLink="/view-grievances" routerLinkActive="active">View Grievances</a></li>
+          <li><a routerLink="/customer-feedback" routerLinkActive="active">Customer Feedback</a></li>
+          <li><a routerLink="/management-dashboard" routerLinkActive="active">Management Department</a></li>
+      </ul>
+
+        <div class="logout">
+            <button (click)="redirectToLogin()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="main-header">
+            <h1 id="DashboardTitle">Admin Dashboard</h1>
+            <div class="profile">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagAUI2PiSNsfW-nF3bM8SmhNtuKw3WWOAQQ&s" alt="Admin Profile">
+            </div>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Grievances</h3>
+                <p>{{ totalGrievances }}</p>
+            </div>
+            <div class="card">
+                <h3>Pending Grievances</h3>
+                <p>{{ pendingGrievances }}</p>
+            </div>
+            <div class="card">
+                <h3>Resolved Grievances</h3>
+                <p>{{ resolvedGrievances }}</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

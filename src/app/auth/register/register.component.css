@@ -1,0 +1,149 @@
+/* Main Register Container */
+.register-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+.image-section {
+  background-image: url('https://www.pngkey.com/png/detail/203-2035339_register-user-register-online-icon-png.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.form-section {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.8s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Form Groups */
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Input Fields */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.eye-button {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Error and Success Messages */
+.error-message,
+.success-message {
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: #ff4d4d;
+  background-color: #ffe6e6;
+}
+
+.success-message {
+  color: #28a745;
+  background-color: #e6ffed;
+}
+
+/* Register Button */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:disabled {
+  background-color: #cce0ff;
+  cursor: not-allowed;
+}
+
+.btn-primary:hover:enabled {
+  background-color: #0056b3;
+}
+
+/* Secondary Button for "Have an account?" */
+.btn-secondary {
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  color: #007bff;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .register-container {
+    flex-direction: column;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+}

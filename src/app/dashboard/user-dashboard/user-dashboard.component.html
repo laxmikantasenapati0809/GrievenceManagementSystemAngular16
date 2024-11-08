@@ -1,0 +1,50 @@
+<div class="dashboard">
+  <!-- Logout Button -->
+  <button class="logout-button" (click)="logout()">Logout</button>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <button (click)="view = 'myComplaints'" [class.active]="view === 'myComplaints'">My Complaints</button>
+    <button (click)="view = 'newComplaint'" [class.active]="view === 'newComplaint'">New Complaint</button>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content">
+    <!-- My Complaints View -->
+    <div *ngIf="view === 'myComplaints'" class="complaints-list">
+      <h3>Your Complaints</h3>
+      <div *ngIf="complaints.length > 0; else noComplaints">
+        <div *ngFor="let complaint of complaints" class="complaint-card">
+          <p><strong>Department:</strong> {{ complaint.managementType }}</p>
+          <p><strong>Description:</strong> {{ complaint.description }}</p>
+          <p><strong>Status:</strong> {{ complaint.status }}</p>
+          <p><strong>Phone Number:</strong> {{ complaint.phoneNumber }}</p>
+        </div>
+      </div>
+      <ng-template #noComplaints>
+        <p>No complaints found.</p>
+      </ng-template>
+    </div>
+
+    <!-- New Complaint Form -->
+    <div *ngIf="view === 'newComplaint'" class="add-complaint">
+      <h3>Add a New Complaint</h3>
+      <form (ngSubmit)="submitComplaint()">
+        <label for="managementType">Department Type</label>
+        <select [(ngModel)]="newComplaint.managementType" name="managementType" required>
+          <option value="IT">IT</option>
+          <option value="HR">HR</option>
+          <option value="Maintenance">Maintenance</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea [(ngModel)]="newComplaint.description" name="description" required></textarea>
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" [(ngModel)]="newComplaint.phoneNumber" name="phoneNumber" required />
+
+        <button type="submit">Submit Complaint</button>
+      </form>
+    </div>
+  </div>
+</div>

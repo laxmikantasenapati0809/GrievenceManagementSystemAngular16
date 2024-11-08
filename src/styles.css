@@ -1,0 +1,116 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #183350;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header nav {
+  display: flex;
+  gap: 15px;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #ffdd57;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer .footer-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer .footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+  color: #0056b3;
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer .social-icons a {
+  color: #007bff;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #0056b3;
+}
+
+/* Add padding-top to offset fixed header */
+body {
+  padding-top: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header nav {
+    display: none;
+  }
+  .header .menu-toggle {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .footer .footer-content {
+    flex-direction: column;
+  }
+}

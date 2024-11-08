@@ -1,0 +1,100 @@
+<div class="register-container row">
+  <!-- Left Side: Image Section -->
+  <div class="col-lg-6 col-md-6 col-sm-12 image-section">
+    <img src="https://www.pngkey.com/png/detail/203-2035339_register-user-register-online-icon-png.png" alt="Registration Image" class="img-fluid" />
+  </div>
+
+  <!-- Right Side: Form Section -->
+  <div class="col-lg-6 col-md-6 col-sm-12 form-section">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="animated-form">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          formControlName="username"
+          type="text"
+          class="form-control"
+          placeholder="Enter username"
+        />
+      </div>
+
+      <!-- Password Field with Eye Icon -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input
+            id="password"
+            formControlName="password"
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Enter password"
+          />
+          <button type="button" class="eye-button" (click)="togglePasswordVisibility()">
+            <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Confirm Password Field with Eye Icon -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-container">
+          <input
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Confirm password"
+          />
+          <button type="button" class="eye-button" (click)="toggleConfirmPasswordVisibility()">
+            <i [class]="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Full Name Field -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          id="fullName"
+          formControlName="fullName"
+          type="text"
+          class="form-control"
+          placeholder="Enter full name"
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+        />
+      </div>
+
+      <!-- Error and Success Messages -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <!-- Register Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+        Register
+      </button>
+
+      <!-- Have an account button -->
+      <button type="button" class="btn-secondary" (click)="navigateToLogin()">
+        Have an account?
+      </button>
+    </form>
+  </div>
+</div>
