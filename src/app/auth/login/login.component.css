@@ -5,23 +5,15 @@
   font-family: Arial, sans-serif;
 }
 
-/* Left Side Image Section */
-.image-container {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  display: none; /* Hide by default on smaller screens */
+/* Admin Button on Top Right */
+.admin-login-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-@media (min-width: 768px) {
-  .image-container {
-    display: flex;
-  }
-}
-
-/* Right Side Form Container */
+/* Centered Form Container */
 .form-container {
-  flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -42,13 +34,6 @@ h2 {
   margin-bottom: 15px;
   font-size: 24px;
   color: #333;
-}
-
-.sub-title {
-  text-align: center;
-  color: #666;
-  margin-bottom: 25px;
-  font-size: 14px;
 }
 
 /* Input Fields */
@@ -96,12 +81,6 @@ h2 {
 
 .btn-small-register:hover {
   background-color: #e0e0e0;
-}
-
-.admin-login-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
 }
 
 .btn-admin {

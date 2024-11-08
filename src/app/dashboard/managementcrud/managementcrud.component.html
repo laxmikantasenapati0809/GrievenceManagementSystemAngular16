@@ -1,0 +1,21 @@
+<div class="form-container">
+  <h2>Management Login</h2>
+  <form [formGroup]="managementLoginForm" (ngSubmit)="onManagementLogin()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" class="form-control" placeholder="Enter username" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter password" />
+    </div>
+    <div class="form-group">
+      <label for="managementType">Management Type</label>
+      <input id="managementType" formControlName="managementType" type="text" class="form-control" placeholder="Enter management type" />
+    </div>
+    <button type="submit" class="btn-login" [disabled]="managementLoginForm.invalid">Login</button>
+  </form>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }} 
+  </div>
+</div>

@@ -22,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { ManagementDashboardComponent } from './dashboard/management-dashboard/management-dashboard.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ManagementcrudComponent } from './dashboard/managementcrud/managementcrud.component';
+import { ManageroperationsComponent } from './dashboard/managementcrud/manageroperations/manageroperations.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HeaderComponent,
     FooterComponent,
     AdminLoginComponent,
-    ManagementDashboardComponent
+    ManagementDashboardComponent,
+    ManagementcrudComponent,
+    ManageroperationsComponent
   ],
   imports: [
     BrowserModule,

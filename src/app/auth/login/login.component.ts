@@ -66,4 +66,9 @@ export class LoginComponent {
   navigateToAdmin() {
     this.router.navigate(['/admin-login']);
   }
+
+  navigateToManagementLogin() {
+    // Directly navigate to the management CRUD component
+    this.router.navigate(['/managementcrud']);
+  }
 }

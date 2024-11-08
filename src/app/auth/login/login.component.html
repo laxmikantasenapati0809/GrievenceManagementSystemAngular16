@@ -1,12 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <!-- Left Side Image -->
-    <div class="col-lg-6 col-md-6 d-none d-md-flex align-items-center justify-content-center image-container">
-      <img src="https://static.vecteezy.com/system/resources/previews/047/782/846/non_2x/an-illustration-of-a-customer-service-representative-using-a-laptop-to-communicate-with-clients-online-the-representative-is-smiling-and-appears-to-be-helping-the-clients-free-vector.jpg" alt="Image" class="img-fluid" />
-    </div>
+    <!-- Admin Login Button -->
+    <button class="btn-admin admin-login-btn" (click)="navigateToAdmin()">Admin</button>
 
     <!-- Right Side Form -->
-    <div class="col-lg-6 col-md-6 col-12 d-flex align-items-center justify-content-center">
+    <div class="col-12 d-flex align-items-center justify-content-center">
       <div class="form-container">
         <h2>Login to Your Account</h2>
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -45,6 +43,8 @@
           Don't have an account?
           <button class="btn-small-register" (click)="navigateToRegister()">Register</button>
         </div>
+
+        <button class="btn-management" (click)="navigateToManagementLogin()">Management Login</button>
       </div>
     </div>
   </div>
