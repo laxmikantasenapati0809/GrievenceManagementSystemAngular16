@@ -1,51 +1,47 @@
 <div class="container-fluid">
-  <div class="row">
-    <!-- Admin Login Button -->
-    <button class="btn-admin admin-login-btn" (click)="navigateToAdmin()">Admin</button>
+  <!-- Top Right Buttons for Admin and Management Login -->
+  <div class="top-buttons">
+    <button class="btn btn-outline-primary" (click)="navigateToAdmin()">Admin Login</button>
+    <button class="btn btn-outline-secondary" (click)="navigateToManagementLogin()">Management Team</button>
+  </div>
 
-    <!-- Right Side Form -->
-    <div class="col-12 d-flex align-items-center justify-content-center">
-      <div class="form-container">
-        <h2>Login to Your Account</h2>
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              id="username"
-              formControlName="username"
-              type="text"
-              class="form-control input-field"
-              placeholder="Enter username"
-            />
-          </div>
+  <!-- Main Login Container -->
+  <div class="login-container row">
+    <!-- Left Side: Image Section -->
+    <div class="col-lg-6 col-md-6 col-sm-12 image-section">
+      <img src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-29.png" alt="Login Image" class="img-fluid" />
+    </div>
 
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              formControlName="password"
-              type="password"
-              class="form-control input-field"
-              placeholder="Enter password"
-            />
-          </div>
-
-          <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-          </div>
-
-          <button type="submit" class="btn-login" [disabled]="loginForm.invalid">
-            Login
-          </button>
-        </form>
-
-        <div class="register-message">
-          Don't have an account?
-          <button class="btn-small-register" (click)="navigateToRegister()">Register</button>
+    <!-- Right Side: Form Section -->
+    <div class="col-lg-6 col-md-6 col-sm-12 form-section">
+      <h2>Login to Your Account</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="animated-form">
+        <!-- Username Field -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" formControlName="username" type="text" class="form-control" placeholder="Enter username" />
         </div>
 
-        <button class="btn-management" (click)="navigateToManagementLogin()">Management Login</button>
-      </div>
+        <!-- Password Field with Eye Icon -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input id="password" formControlName="password" [type]="showPassword ? 'text' : 'password'" class="form-control" placeholder="Enter password" />
+            <button type="button" class="eye-button" (click)="togglePasswordVisibility()">
+              <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <!-- Login Button -->
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+
+        <!-- Register Message -->
+        <button type="button" class="btn-secondary" (click)="navigateToRegister()">Don't have an account? Register</button>
+      </form>
     </div>
   </div>
 </div>

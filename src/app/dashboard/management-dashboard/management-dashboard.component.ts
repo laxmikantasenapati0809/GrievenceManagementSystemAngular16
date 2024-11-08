@@ -21,4 +21,20 @@ export class ManagementDashboardComponent {
     { name: 'Academic Affairs Director' }  // Handles complaints related to academics such as grades, exam issues, etc.
 ];
 
+getCardStyle(index: number) {
+  const colorPalettes = [
+    ['#ff7e5f', '#feb47b'],
+    ['#ff6a00', '#ee0979'],
+    ['#24c6dc', '#514a9d'],
+    ['#43cea2', '#185a9d'],
+    ['#f7971e', '#ffd200'],
+    // Add more color combinations as needed
+  ];
+
+  // If there are more roles than colors, loop the color palette
+  const palette = colorPalettes[index % colorPalettes.length];
+  return {
+    'background': `linear-gradient(145deg, ${palette[0]}, ${palette[1]})`
+  };
+}
 }

@@ -2,96 +2,155 @@
 .container-fluid {
   display: flex;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #f9f9f9;
 }
 
-/* Admin Button on Top Right */
-.admin-login-btn {
+/* Top Right Buttons for Admin and Management */
+.top-buttons {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-/* Centered Form Container */
-.form-container {
-  padding: 40px;
+.btn-outline-primary, .btn-outline-secondary {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Main Login Container */
+.login-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f9f9f9;
   width: 100%;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.95);
+  max-width: 900px;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Heading and Subtitle */
+/* Image Section */
+.image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Form Section */
+.form-section {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
 h2 {
   text-align: center;
-  margin-bottom: 15px;
   font-size: 24px;
   color: #333;
+  margin-bottom: 15px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 15px;
 }
 
 /* Input Fields */
-.input-field {
+.form-control {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
 }
 
-.input-field:focus {
+.form-control:focus {
   border-color: #007bff;
   outline: none;
 }
 
-/* Buttons */
-.btn-login, .btn-small-register, .btn-admin {
-  width: 100%;
-  padding: 12px;
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.eye-button {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  margin-left: -30px;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #ff4d4d;
+  background-color: #ffe6e6;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+/* Primary Button (Login) */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-size: 16px;
-  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.btn-login {
-  background-color: #007bff;
-  color: white;
+.btn-primary:disabled {
+  background-color: #cce0ff;
+  cursor: not-allowed;
 }
 
-.btn-login:hover {
+.btn-primary:hover:enabled {
   background-color: #0056b3;
 }
 
-.btn-small-register {
+/* Secondary Button for "Don't have an account?" */
+.btn-secondary {
+  margin-top: 10px;
   background-color: #f0f0f0;
   color: #007bff;
-  margin-top: 12px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
 }
 
-.btn-small-register:hover {
+.btn-secondary:hover {
   background-color: #e0e0e0;
 }
 
-.btn-admin {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-admin:hover {
-  background-color: #5a6268;
-}
-
+/* Fade-in Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -103,12 +162,17 @@ h2 {
   }
 }
 
+/* Responsive Adjustments */
 @media (max-width: 767px) {
-  .form-container {
-    padding: 20px;
+  .login-container {
+    flex-direction: column;
   }
 
-  .admin-login-btn {
+  .form-section {
+    width: 100%;
+  }
+
+  .top-buttons {
     top: 10px;
     right: 10px;
   }

@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
+  showPassword: boolean = false; // Property to toggle password visibility
 
   constructor(
     private fb: FormBuilder,
@@ -19,16 +20,24 @@ export class LoginComponent {
     private router: Router,
     private snackBar: MatSnackBar
   ) {
+    // Initialize the form group with validators
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
+  // Toggle the visibility of the password field
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  // Navigation method to the register page
   navigateToRegister() {
     this.router.navigate(['/register']);
   }
 
+  // Login submission method
   onLogin() {
     if (this.loginForm.invalid) {
       this.errorMessage = 'Please fill in all required fields correctly.';
@@ -63,12 +72,12 @@ export class LoginComponent {
     );
   }
 
+  // Navigation methods
   navigateToAdmin() {
     this.router.navigate(['/admin-login']);
   }
 
   navigateToManagementLogin() {
-    // Directly navigate to the management CRUD component
     this.router.navigate(['/managementcrud']);
   }
 }

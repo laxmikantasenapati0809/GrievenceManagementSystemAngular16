@@ -1,7 +1,7 @@
 <div class="page-container">
   <h1 class="management-heading">Management Roles</h1>
   <div class="management-dashboard">
-    <div *ngFor="let role of managementRoles" class="management-card">
+    <div *ngFor="let role of managementRoles; let i = index" class="management-card" [ngStyle]="getCardStyle(i)">
       <span class="management-name">{{ role.name }}</span>
     </div>
   </div>
