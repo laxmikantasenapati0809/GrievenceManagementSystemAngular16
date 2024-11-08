@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #183350;
+  background: linear-gradient(90deg, #2d8d35, #619fd9); /* Gradient from dark blue to a lighter shade */
   color: white;
   display: flex;
   justify-content: center;  /* Center content horizontally */
@@ -34,7 +34,7 @@
 
 /* Footer Styling */
 .footer {
-  background-color: #f1f1f1;
+  background: linear-gradient(90deg, #f1f1f1, #dfe6e9); /* Gradient from light grey to a slightly darker grey */
   color: #333;
   padding: 20px;
   text-align: center;
