@@ -1,3 +1,5 @@
+// complaint.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -32,5 +34,20 @@ export class ComplaintService {
   // Delete a complaint
   deleteComplaint(id: number, userId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}?userId=${userId}`);
+  }
+
+  // Fetch total number of complaints
+  getTotalComplaints(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/count`);
+  }
+
+  // Fetch count of pending complaints
+  getPendingComplaints(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/count/pending`);
+  }
+
+  // Fetch count of resolved complaints
+  getResolvedComplaints(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/count/resolved`);
   }
 }
