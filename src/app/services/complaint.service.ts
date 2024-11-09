@@ -50,4 +50,13 @@ export class ComplaintService {
   getResolvedComplaints(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/count/resolved`);
   }
+
+  // Fetch all complaints - updated to correct endpoint
+  getAllComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/complaints`);
+  }
+
+  getComplaints(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/complaints`);
+  }
 }

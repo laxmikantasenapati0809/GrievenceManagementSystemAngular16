@@ -1,11 +1,11 @@
-<!-- admin-dashboard.component.html -->
-
 <div class="container">
   <div class="sidebar">
     <h2>Admin Panel</h2>
     <ul>
       <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-      <li><a routerLink="/view-grievances" routerLinkActive="active">View Grievances</a></li>
+      <li>
+        <a href="#" (click)="viewGrievances()">View Grievances</a>
+      </li>
       <li><a routerLink="/customer-feedback" routerLinkActive="active">Customer Feedback</a></li>
       <li><a routerLink="/management-dashboard" routerLinkActive="active">Management Department</a></li>
     </ul>
@@ -19,23 +19,51 @@
     <div class="main-header">
       <h1 id="DashboardTitle">Admin Dashboard</h1>
       <div class="profile">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagAUI2PiSNsfW-nF3bM8SmhNtuKw3WWOAQQ&s" alt="Admin Profile">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagAUI2PiSNsfW-nF3bM8SmhNtuKw3WWOAQQ&s"
+          alt="Admin Profile"
+        />
       </div>
     </div>
 
-    <div class="dashboard">
-      <div class="card">
-        <h3>Total Grievances</h3>
-        <p>{{ totalGrievances }}</p>
+    <!-- Show cards or grievances table based on selection -->
+    <div *ngIf="!showGrievances">
+      <div class="dashboard">
+        <div class="card">
+          <h3>Total Grievances</h3>
+          <p>{{ totalGrievances }}</p>
+        </div>
+        <div class="card">
+          <h3>Pending Grievances</h3>
+          <p>{{ pendingGrievances }}</p>
+        </div>
+        <div class="card">
+          <h3>Resolved Grievances</h3>
+          <p>{{ resolvedGrievances }}</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Pending Grievances</h3>
-        <p>{{ pendingGrievances }}</p>
-      </div>
-      <div class="card">
-        <h3>Resolved Grievances</h3>
-        <p>{{ resolvedGrievances }}</p>
-      </div>
+    </div>
+
+    <div class="complaints-table" *ngIf="showGrievances">
+      <h2>All Complaints</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date Submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let complaint of complaints">
+            <td>{{ complaint.id }}</td>
+            <td>{{ complaint.description }}</td>
+            <td>{{ complaint.status }}</td>
+            <!-- <td>{{ complaint.dateSubmitted | date }}</td> -->
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
