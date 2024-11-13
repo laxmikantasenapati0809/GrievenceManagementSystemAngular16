@@ -37,8 +37,7 @@ import { ManageroperationsComponent } from './dashboard/managementcrud/managerop
     AdminLoginComponent,
     ManagementDashboardComponent,
     ManagementcrudComponent,
-    ManageroperationsComponent
-  ],
+    ManageroperationsComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -9,6 +10,7 @@ import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { ManagementDashboardComponent } from './dashboard/management-dashboard/management-dashboard.component';
 import { ManagementcrudComponent } from './dashboard/managementcrud/managementcrud.component';
 import { ManageroperationsComponent } from './dashboard/managementcrud/manageroperations/manageroperations.component';
+
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -26,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), MatDialogModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

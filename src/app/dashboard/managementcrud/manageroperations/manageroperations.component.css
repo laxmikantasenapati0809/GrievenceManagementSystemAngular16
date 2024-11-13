@@ -1,7 +1,15 @@
+/* Add some basic styles for the table */
 table {
-  display: block;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-tr, td, th {
-  display: inline-block;
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
 }

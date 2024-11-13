@@ -61,5 +61,10 @@ addManagementRole(role: { name: string; description: string }): Observable<any> 
   return this.http.post(this.rolesUrl, role); // Use the rolesUrl defined above
 }
 
+updateComplaintStatus(complaintId: number, status: string): Observable<any> {
+  const url = `${this.apiUrl}/${complaintId}`;
+  return this.http.put(url, { status });
+}
+
 
 }

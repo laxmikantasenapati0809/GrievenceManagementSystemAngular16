@@ -5,7 +5,7 @@
   <p *ngIf="complaints.length === 0">No complaints available for this role.</p>
 
   <!-- Complaints Table -->
-  <table *ngIf="complaints.length > 0">
+  <table *ngIf="complaints.length > 0" class="complaints-table">
     <thead>
       <tr>
         <th>ID</th>
@@ -15,6 +15,7 @@
         <th>Department Type</th>
         <th>Phone Number</th>
         <th>User ID</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -26,10 +27,15 @@
         <td>{{ complaint.departmentType }}</td>
         <td>{{ complaint.phoneNumber }}</td>
         <td>{{ complaint.userId }}</td>
+        <!-- Button to update the status -->
+        <td>
+          <button
+            *ngIf="complaint.status !== 'Resolved'"
+            (click)="onMarkResolved(complaint.id)">
+            Mark as Resolved
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
-
-  <!-- Debugging: Check the complaints data -->
-  <pre>{{ complaints | json }}</pre>
 </div>
