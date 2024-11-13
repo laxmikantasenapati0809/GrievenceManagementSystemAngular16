@@ -1,0 +1,7 @@
+table {
+  display: block;
+}
+
+tr, td, th {
+  display: inline-block;
+}

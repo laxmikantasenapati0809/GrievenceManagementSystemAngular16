@@ -1,1 +1,35 @@
-<p>manageroperations works!</p>
+<div class="complaints-container">
+  <h2>Complaints for {{ roleType }}</h2>
+
+  <!-- Display message if no complaints are available -->
+  <p *ngIf="complaints.length === 0">No complaints available for this role.</p>
+
+  <!-- Complaints Table -->
+  <table *ngIf="complaints.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Management Type</th>
+        <th>Department Type</th>
+        <th>Phone Number</th>
+        <th>User ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <td>{{ complaint.id }}</td>
+        <td>{{ complaint.description }}</td>
+        <td>{{ complaint.status }}</td>
+        <td>{{ complaint.managementType }}</td>
+        <td>{{ complaint.departmentType }}</td>
+        <td>{{ complaint.phoneNumber }}</td>
+        <td>{{ complaint.userId }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Debugging: Check the complaints data -->
+  <pre>{{ complaints | json }}</pre>
+</div>

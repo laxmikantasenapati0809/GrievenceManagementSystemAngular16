@@ -8,6 +8,7 @@ import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashb
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { ManagementDashboardComponent } from './dashboard/management-dashboard/management-dashboard.component';
 import { ManagementcrudComponent } from './dashboard/managementcrud/managementcrud.component';
+import { ManageroperationsComponent } from './dashboard/managementcrud/manageroperations/manageroperations.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminDashboardComponent, },
   { path: 'management-dashboard', component: ManagementDashboardComponent },
   { path: 'managementcrud', component: ManagementcrudComponent },
+  { path: 'manageroperations', component: ManageroperationsComponent },
   { path: '**', redirectTo: '/login' }
 ];
 

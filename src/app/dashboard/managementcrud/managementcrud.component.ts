@@ -44,44 +44,50 @@ export class ManagementcrudComponent implements OnInit {
   ngOnInit(): void {}
 
   onManagementLogin(): void {
+    console.log('Login button clicked');
     if (this.managementLoginForm.invalid) {
+      const usernameErrors = this.managementLoginForm.controls['username'].errors;
+      const passwordErrors = this.managementLoginForm.controls['password'].errors;
+      const roleTypeErrors = this.managementLoginForm.controls['roleType'].errors;
+
+      console.log('Username Errors:', usernameErrors);
+      console.log('Password Errors:', passwordErrors);
+      console.log('RoleType Errors:', roleTypeErrors);
+      this.snackBar.open('Please fill in all required fields correctly.', 'Close', { duration: 3000 });
       return;
     }
 
-    const { username, password, roleType } = this.managementLoginForm.value; // Change managementType to roleType
+    const { username, password, roleType } = this.managementLoginForm.value;
 
-    // Log the values before making the request
-    console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("Role Type:", roleType);  // Log roleType to ensure it's not undefined
+    console.log('Login form submitted with:', { username, password, roleType }); // Debug log
 
     this.managementService.managementLogin(username, password, roleType).subscribe(
       response => {
+        console.log('Login response:', response); // Log response from backend
+
         if (response && response.success) {
-          this.snackBar.open('Login successful!', 'Close', {
-            duration: 2000,
-            verticalPosition: 'top',
-            horizontalPosition: 'center',
-            panelClass: ['success-snackbar']
-          });
+          // Extract the complaints data from the response
+          const complaints = response.data; // Assuming the complaints are under 'data'
+
+          console.log('Complaints received:', complaints); // Log complaints
+
+          this.snackBar.open('Login successful!', 'Close', { duration: 2000 });
 
           setTimeout(() => {
-            this.router.navigate(['/manager-operations']);
+            this.router.navigate(['/manageroperations'], {
+              queryParams: { roleType: roleType, complaints: JSON.stringify(complaints) }
+            });
           }, 500);
         } else {
           this.errorMessage = 'Invalid credentials or management type';
           this.snackBar.open(this.errorMessage, 'Close', { duration: 3000 });
         }
       },
-      (error: any) => {
+      error => {
+        console.error('Login error:', error); // Log error
         this.errorMessage = 'An error occurred while logging in';
         this.snackBar.open(this.errorMessage, 'Close', { duration: 3000 });
       }
     );
   }
-
-
-
-
-
 }
