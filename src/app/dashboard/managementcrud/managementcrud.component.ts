@@ -12,7 +12,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ManagementcrudComponent implements OnInit {
 
   managementLoginForm: FormGroup;
-  errorMessage: string | null = null;  // Add the errorMessage property to the component
+  errorMessage: string | null = null;
+  managementRoles = [
+    { name: 'Student Grievance Officer' },
+    { name: 'Faculty Grievance Officer' },
+    { name: 'Academic Dispute Manager' },
+    { name: 'Disciplinary Committee Head' },
+    { name: 'Student Welfare Coordinator' },
+    { name: 'Faculty Welfare Coordinator' },
+    { name: 'Registrar' },
+    { name: 'Dean of Students' },
+    { name: 'Head of Faculty Affairs' },
+    { name: 'Counseling and Support Coordinator' },
+    { name: 'Compliance Officer' },
+    { name: 'Academic Affairs Director' }
+  ];
 
   constructor(
     private fb: FormBuilder,
@@ -23,7 +37,7 @@ export class ManagementcrudComponent implements OnInit {
     this.managementLoginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-      managementType: ['', Validators.required]
+      roleType: ['', Validators.required]
     });
   }
 
@@ -34,9 +48,14 @@ export class ManagementcrudComponent implements OnInit {
       return;
     }
 
-    const { username, password, managementType } = this.managementLoginForm.value;
+    const { username, password, roleType } = this.managementLoginForm.value; // Change managementType to roleType
 
-    this.managementService.managementLogin(username, password, managementType).subscribe(
+    // Log the values before making the request
+    console.log("Username:", username);
+    console.log("Password:", password);
+    console.log("Role Type:", roleType);  // Log roleType to ensure it's not undefined
+
+    this.managementService.managementLogin(username, password, roleType).subscribe(
       response => {
         if (response && response.success) {
           this.snackBar.open('Login successful!', 'Close', {
@@ -46,7 +65,6 @@ export class ManagementcrudComponent implements OnInit {
             panelClass: ['success-snackbar']
           });
 
-          // Redirect to manager operations page
           setTimeout(() => {
             this.router.navigate(['/manager-operations']);
           }, 500);
@@ -55,11 +73,15 @@ export class ManagementcrudComponent implements OnInit {
           this.snackBar.open(this.errorMessage, 'Close', { duration: 3000 });
         }
       },
-      (error: any) => {  // Explicitly define the type of 'error'
+      (error: any) => {
         this.errorMessage = 'An error occurred while logging in';
         this.snackBar.open(this.errorMessage, 'Close', { duration: 3000 });
       }
     );
   }
+
+
+
+
 
 }

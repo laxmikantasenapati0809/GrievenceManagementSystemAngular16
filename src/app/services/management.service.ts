@@ -8,12 +8,13 @@ import { ManagementLoginResponse } from '../models/ManagementLoginResponse';
 })
 export class ManagementService {
 
-  private apiUrl = 'http://localhost:8080/api/auth/management-login';  // Adjust with your Spring Boot endpoint
+  private apiUrl = 'http://localhost:9090/api/management/login';
 
   constructor(private http: HttpClient) { }
 
   // Method to send management login data to backend
-  managementLogin(username: string, password: string, managementType: string): Observable<ManagementLoginResponse> {
-    return this.http.post<ManagementLoginResponse>(this.apiUrl, { username, password, managementType });
+  managementLogin(username: string, password: string, roleType: string): Observable<ManagementLoginResponse> {
+    return this.http.post<ManagementLoginResponse>(this.apiUrl, { username, password, roleType });
   }
+
 }

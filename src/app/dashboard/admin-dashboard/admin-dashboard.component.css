@@ -25,6 +25,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
@@ -47,11 +48,14 @@ body {
   color: white;
   font-size: 16px;
   display: block;
+  background: linear-gradient(135deg, #3498db, #9b59b6); /* Gradient background */
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .sidebar ul li a:hover {
-  background-color: #34495E;
-  padding-left: 10px;
+  background: linear-gradient(135deg, #2980b9, #8e44ad); /* Hover effect with gradient */
+  transform: scale(1.05);
   transition: all 0.3s ease;
 }
 
@@ -68,11 +72,12 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .sidebar .logout button:hover {
   background-color: #c0392b;
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Main Content Styles */
@@ -80,30 +85,7 @@ body {
   flex-grow: 1;
   padding: 20px;
   background-color: #ecf0f1;
-}
-
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-.main-header h1 {
-  font-size: 24px;
-}
-
-.main-header .profile {
-  display: flex;
-  align-items: center;
-}
-
-.main-header .profile img {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Dashboard Card Styles */
@@ -114,7 +96,7 @@ body {
 }
 
 .card {
-  background-color: white;
+  background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Light gradient for the cards */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -124,6 +106,12 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Elevation effect on hover */
 }
 
 .card h3 {
@@ -151,9 +139,48 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .department-btn button:hover {
   background-color: #2980B9;
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table thead {
+  background: linear-gradient(135deg, #3498db, #9b59b6); /* Gradient header */
+  color: white;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+table tbody tr {
+  background: #fff;
+  transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #ecf0f1; /* Slightly different background for even rows */
+}
+
+table td {
+  color: #2C3E50;
 }

@@ -10,6 +10,7 @@ import { Complaint } from '../models/complaint.model';
 })
 export class ComplaintService {
   private apiUrl = 'http://localhost:9090/api/complaints';
+  private rolesUrl = '/api/roles'; // URL for roles (define it)
 
   constructor(private http: HttpClient) {}
 
@@ -41,7 +42,6 @@ export class ComplaintService {
     return this.http.get<number>(`${this.apiUrl}/count`);
   }
 
-  // Fetch count of pending complaints
   getPendingComplaints(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/count/pending`);
   }
@@ -51,12 +51,15 @@ export class ComplaintService {
     return this.http.get<number>(`${this.apiUrl}/count/resolved`);
   }
 
-  // Fetch all complaints - updated to correct endpoint
-  getAllComplaints(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/complaints`);
-  }
+  // Fetch all complaints
+getAllComplaints(): Observable<Complaint[]> {
+  return this.http.get<Complaint[]>(`${this.apiUrl}/all`);
+}
 
-  getComplaints(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/complaints`);
-  }
+// Method to add a management role
+addManagementRole(role: { name: string; description: string }): Observable<any> {
+  return this.http.post(this.rolesUrl, role); // Use the rolesUrl defined above
+}
+
+
 }

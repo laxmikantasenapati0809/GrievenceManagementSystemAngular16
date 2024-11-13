@@ -10,12 +10,15 @@
       <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter password" />
     </div>
     <div class="form-group">
-      <label for="managementType">Management Type</label>
-      <input id="managementType" formControlName="managementType" type="text" class="form-control" placeholder="Enter management type" />
+      <label for="managementType">Manager Role</label>
+      <!-- Dropdown for role selection -->
+      <select id="managementType" formControlName="roleType" class="form-control">
+        <option *ngFor="let role of managementRoles" [value]="role.name">{{ role.name }}</option>
+      </select>
     </div>
     <button type="submit" class="btn-login" [disabled]="managementLoginForm.invalid">Login</button>
   </form>
   <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }} 
+    {{ errorMessage }}
   </div>
 </div>
