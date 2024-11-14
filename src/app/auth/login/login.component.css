@@ -1,11 +1,13 @@
-/* Main Container */
+/* Container with New Gradient Background */
 .container-fluid {
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* New vibrant gradient */
+  color: #fff;
+  padding: 20px;
 }
 
 /* Top Right Buttons for Admin and Management */
@@ -22,6 +24,13 @@
   font-size: 14px;
   border-radius: 4px;
   font-weight: bold;
+  color: #0a0909;
+  border-color: #fff;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Main Login Container */
@@ -29,9 +38,9 @@
   display: flex;
   width: 100%;
   max-width: 900px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Image Section */
@@ -61,7 +70,7 @@
 h2 {
   text-align: center;
   font-size: 24px;
-  color: #333;
+  color: #f0f0f0;
   margin-bottom: 15px;
 }
 
@@ -75,15 +84,19 @@ h2 {
   width: 100%;
   padding: 10px;
   font-size: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #555;
   border-radius: 4px;
+  background-color: #333;
+  color: #fff;
 }
 
 .form-control:focus {
-  border-color: #007bff;
+  border-color: #ffaf7b;
   outline: none;
+  background-color: #444;
 }
 
+/* Password Field with Eye Icon */
 .password-container {
   display: flex;
   align-items: center;
@@ -92,7 +105,7 @@ h2 {
 .eye-button {
   background: transparent;
   border: none;
-  color: #666;
+  color: #ccc;
   cursor: pointer;
   margin-left: -30px;
 }
@@ -100,7 +113,7 @@ h2 {
 /* Error Message Styling */
 .error-message {
   color: #ff4d4d;
-  background-color: #ffe6e6;
+  background-color: #661a1a;
   font-size: 14px;
   text-align: center;
   padding: 8px;
@@ -111,8 +124,8 @@ h2 {
 
 /* Primary Button (Login) */
 .btn-primary {
-  background-color: #007bff;
-  color: white;
+  background-color: #ffaf7b;
+  color: #3a1c71;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -124,30 +137,30 @@ h2 {
 }
 
 .btn-primary:disabled {
-  background-color: #cce0ff;
+  background-color: #b28f56;
   cursor: not-allowed;
 }
 
 .btn-primary:hover:enabled {
-  background-color: #0056b3;
+  background-color: #d76d77;
 }
 
-/* Secondary Button for "Don't have an account?" */
+/* Secondary Button */
 .btn-secondary {
   margin-top: 10px;
-  background-color: #f0f0f0;
-  color: #007bff;
+  background-color: transparent;
+  color: #ffaf7b;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
-  border: none;
+  border: 1px solid #281508;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
 }
 
 .btn-secondary:hover {
-  background-color: #e0e0e0;
+  background-color: rgba(255, 175, 123, 0.1);
 }
 
 /* Fade-in Animation */

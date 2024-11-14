@@ -1,4 +1,4 @@
-/* General Reset and Body Styles */
+/* Reset, Body, and Layout Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,6 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Container and Flex Layout */
 .container {
   display: flex;
   height: 100vh;
@@ -25,7 +24,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
@@ -43,25 +41,18 @@ body {
   padding: 15px 0;
 }
 
-.sidebar ul li a {
-  text-decoration: none;
+.sidebar ul li button {
+  background: none;
   color: white;
+  border: none;
+  cursor: pointer;
   font-size: 16px;
-  display: block;
-  background: linear-gradient(135deg, #3498db, #9b59b6); /* Gradient background */
-  padding: 10px;
-  border-radius: 5px;
 }
 
-.sidebar ul li a:hover {
-  background: linear-gradient(135deg, #2980b9, #8e44ad); /* Hover effect with gradient */
-  transform: scale(1.05);
+.sidebar ul li button:hover {
+  background-color: #34495E;
+  padding-left: 10px;
   transition: all 0.3s ease;
-}
-
-.sidebar .logout {
-  text-align: center;
-  padding: 20px;
 }
 
 .sidebar .logout button {
@@ -72,12 +63,11 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
 
 .sidebar .logout button:hover {
   background-color: #c0392b;
-  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Main Content Styles */
@@ -85,18 +75,17 @@ body {
   flex-grow: 1;
   padding: 20px;
   background-color: #ecf0f1;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Dashboard Card Styles */
-.dashboard {
+.cards {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
 .card {
-  background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Light gradient for the cards */
+  background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -106,12 +95,6 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Elevation effect on hover */
 }
 
 .card h3 {
@@ -125,62 +108,69 @@ body {
   color: #2C3E50;
 }
 
-/* Department Button Styles */
-.department-btn {
-  text-align: center;
+/* Styled Table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.department-btn button {
-  padding: 10px 20px;
+.styled-table thead tr {
+  background-color: #3498DB;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #e9f7ff;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Button Styles */
+.primary-button {
   background-color: #3498DB;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
 
-.department-btn button:hover {
+.primary-button:hover {
   background-color: #2980B9;
-  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+.styled-form {
+  border: 1px solid #ddd;
 }
 
-/* Table Styles */
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-  border-radius: 8px;
-  overflow: hidden;
+.styled-form .form-label {
+  font-weight: 600;
 }
 
-table thead {
-  background: linear-gradient(135deg, #3498db, #9b59b6); /* Gradient header */
+.styled-form .primary-button {
+  background-color: #3498DB;
   color: white;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  border: none;
 }
 
-table th, table td {
-  padding: 12px 15px;
-  text-align: left;
-  font-size: 14px;
-}
-
-table tbody tr {
-  background: #fff;
-  transition: background-color 0.3s ease;
-}
-
-table tbody tr:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-table tbody tr:nth-child(even) {
-  background-color: #ecf0f1; /* Slightly different background for even rows */
-}
-
-table td {
-  color: #2C3E50;
+.styled-form .primary-button:hover {
+  background-color: #2980B9;
 }

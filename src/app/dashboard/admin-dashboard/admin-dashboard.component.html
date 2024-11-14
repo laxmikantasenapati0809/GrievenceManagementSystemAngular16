@@ -5,7 +5,6 @@
       <li><button (click)="showDashboard = true; showGrievances = false; showManagementForm = false; showFeedback = false;">Dashboard</button></li>
       <li><button (click)="showGrievances = true; showDashboard = false; showManagementForm = false; showFeedback = false;">View Grievances</button></li>
       <li><button (click)="toggleManagementForm()">Add Management Role</button></li>
-      <li><button (click)="showFeedbackList()">View Feedback</button></li>
     </ul>
     <div class="logout">
       <button (click)="redirectToLogin()">Logout</button>
@@ -34,7 +33,7 @@
     <!-- Grievances Table -->
     <div *ngIf="showGrievances">
       <h2>All Complaints</h2>
-      <table>
+      <table class="styled-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -61,29 +60,36 @@
     </div>
 
     <!-- Management Role Form -->
-    <div *ngIf="showManagementForm">
-      <h2>Add Management Role</h2>
-  <form (ngSubmit)="submitManagementRole()">
-    <label for="roleUsername">Username</label>
-    <input type="text" id="roleUsername" [(ngModel)]="roleUsername" name="roleUsername" required />
+    <div *ngIf="showManagementForm" class="container mt-4">
+      <h2 class="text-center">Add Management Role</h2>
+      <form (ngSubmit)="submitManagementRole()" class="styled-form mx-auto p-3 rounded shadow-sm bg-light" style="max-width: 400px;">
+        <div class="form-group mb-3">
+          <label for="roleUsername" class="form-label">Username</label>
+          <input type="text" id="roleUsername" [(ngModel)]="roleUsername" name="roleUsername" class="form-control" placeholder="Enter username" required />
+        </div>
 
-    <label for="rolePassword">Password</label>
-    <input type="password" id="rolePassword" [(ngModel)]="rolePassword" name="rolePassword" required />
+        <div class="form-group mb-3">
+          <label for="rolePassword" class="form-label">Password</label>
+          <input type="password" id="rolePassword" [(ngModel)]="rolePassword" name="rolePassword" class="form-control" placeholder="Enter password" required />
+        </div>
 
-    <label for="roleName">Role Name</label>
-    <select id="roleName" [(ngModel)]="selectedRole" name="roleName" required>
-      <option value="" disabled>Select Role</option>
-      <option *ngFor="let role of managementRoles" [value]="role.name">{{ role.name }}</option>
-    </select>
-    <button type="submit">Submit</button>
-  </form>
+        <div class="form-group mb-4">
+          <label for="roleName" class="form-label">Role Name</label>
+          <select id="roleName" [(ngModel)]="selectedRole" name="roleName" class="form-select" required>
+            <option value="" disabled>Select Role</option>
+            <option *ngFor="let role of managementRoles" [value]="role.name">{{ role.name }}</option>
+          </select>
+        </div>
 
+        <button type="submit" class="btn btn-primary w-100 primary-button">Submit</button>
+      </form>
     </div>
+
 
     <!-- Feedback List -->
     <div *ngIf="showFeedback">
       <h2>User Feedback</h2>
-      <table>
+      <table class="styled-table">
         <thead>
           <tr>
             <th>Feedback ID</th>
